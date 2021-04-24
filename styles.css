@@ -1,0 +1,25 @@
+.hiddenElement {
+    display: none;
+}
+
+.revealedElement {
+    display: block;
+    animation: .5s slidein-left;
+}
+
+@keyframes slidein-left {
+    0% {
+        transform: translateX(-100%);
+    }
+    100% {
+        transform: translateX(0);
+    }
+}
+
+body {
+    padding: 0 20vw;
+}
+
+h1 {
+    text-align: center;
+}

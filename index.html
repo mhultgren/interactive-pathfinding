@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<body>
+
+<h1>Converting real problems to problem spaces</h1>
+<div>
+    <div>
+        <h2>Introduction</h3>
+        <p>
+            Insightful introduction and summary of algorithms
+        </p>
+
+        <h2>Real world example of a problem</h3>
+        <p>
+            Super descriptive example of problem
+        </p>
+
+        <h3>Quiz</h3>
+
+        <form id = "q1" onsubmit="check_answer(this); return false;">
+        <p>Sliding block puzzles can be thought of as a graph problem</p>
+        <input type="radio" id="q1ans1" name = "question1">
+        <label for="q1ans1">True</label><br>
+
+        <input type="radio" id="q1ans2" name = "question1">
+        <label for="q1ans2">False</label><br>
+
+        <input type="submit" value="Submit">
+        <i class="fa fa-check" aria-hidden="true" style="color: green; display: none;"></i>
+        <i class="fa fa-times" aria-hidden="true" style="color: red; display: none;"></i>
+        </form>
+    </div>
+    <div class = "hiddenElement">
+        <form id = "q2" onsubmit="check_answer(this); return false;">
+            <p>What would the nodes and edges be?</p>
+            <input type="radio" id="q2ans1" name = "question2">
+            <label for="q2ans1">Nodes are the leftover spaces, and edges are the remaining tiles</label><br>
+            
+            <input type="radio" id="q2ans2" name = "question2">
+            <label for="q2ans2">Nodes are boards, edges connect boards differing by one move</label><br>
+            
+            <input type="radio" id="q2ans3" name = "question2">
+            <label for="q2ans3">Nodes are tiles in a board, edges connect one tile to another</label><br>
+            
+            <input type="radio" id="q2ans4" name = "question2">
+            <label for="q2ans4">None of the above</label><br>
+            
+            <input type="submit" value="Submit">
+            <i class="fa fa-check" aria-hidden="true" style="color: green; display: none;"></i>
+            <i class="fa fa-times" aria-hidden="true" style="color: red; display: none;"></i>
+        </form>
+    </div>
+    <div class = "hiddenElement">
+        <form id = "q3" onsubmit="check_answer(this); return false;">
+            <p>test q?</p>
+            <input type="radio" id="q3ans1" name = "question3">
+            <label for="q3ans1">answer 1</label><br>
+            
+            <input type="radio" id="q3ans2" name = "question3">
+            <label for="q3ans2">answer 2</label><br>
+            
+            <input type="radio" id="q3ans3" name = "question3">
+            <label for="q3ans3">answer 3</label><br>
+            
+            <input type="radio" id="q3ans4" name = "question3">
+            <label for="q3ans4">answer 4</label><br>
+            
+            <input type="submit" value="Submit">
+            <i class="fa fa-check" aria-hidden="true" style="color: green; display: none;"></i>
+            <i class="fa fa-times" aria-hidden="true" style="color: red; display: none;"></i>
+        </form>
+    </div>
+    <div class = "hiddenElement">
+        <h3>How the algorithm would affect problem solving</h3>
+        <p>
+            In these visualizations, each cell represents an entire board. The asterisk symbolizes the starting board while the target represents the finished, solved board. So, as the algorithm visits each neighbor, think of it as reaching a new board after moving a piece.
+        </p>
+        <div>
+            <form id = "example1" onsubmit="show_video(this); return false;">
+                <label for="example1input">Choose an algorithm:</label>
+                <select id="example1input" name="example1input">
+                <option value = ""></option>
+                <option value = "bf">Breadth-First</option>
+                <option value = "df">Depth-First</option>
+                <option value = "dijkstra">Dijskra's</option>
+                </select>
+                <input type="submit" value="Submit">
+            </form>
+            <video autoplay loop muted width="500" height="300" style="display: none;" src="example1_df.mp4"></video>
+        </div>
+        <h2>Real world example of a 2nd problem</h3>
+            <p>
+                Super descriptive example of problem
+            </p>
+    
+            <h3>Quiz</h3>
+    
+            <form id = "q4" onsubmit="check_answer(this); return false;">
+            <p>random question</p>
+            <input type="radio" id="q4ans1" name = "question1">
+            <label for="q4ans1">True</label><br>
+    
+            <input type="radio" id="q4ans2" name = "question1">
+            <label for="q4ans2">False</label><br>
+    
+            <input type="submit" value="Submit">
+            <i class="fa fa-check" aria-hidden="true" style="color: green; display: none;"></i>
+            <i class="fa fa-times" aria-hidden="true" style="color: red; display: none;"></i>
+            </form>
+    </div>
+</div>
+<script>
+    let form_id_to_correct_answer_id = 
+    {
+    "q1": "q1ans1",
+    "q2": "q2ans2",
+    "q3": "q3ans1"
+    };
+    function show_video (event) {
+        let form_id = event.id;
+        console.log("form_id is " + form_id);
+        let algorithm = event.getElementsByTagName("select")[0].value;
+        
+        console.log("algorithm is " + algorithm);
+
+        let video_elem = event.nextElementSibling;
+        // if there's no value, make sure next sibling's display is none
+        if (algorithm == "") video_elem.style.display = "none";
+    
+        // else, make display visible and show proper video
+        else {
+            let video_name = form_id + "_" + algorithm + ".mp4";
+
+            video_elem.style.display = "block";
+            video_elem.setAttribute("src", video_name);
+            video_elem.load();
+        }
+
+    }
+    function check_answer (event) {
+        console.log(event.id);
+        // if answer is correct, keep showing next parts of the page up until latest point
+        let correct_answer_id = form_id_to_correct_answer_id[event.id];
+
+        let error_icon = document.getElementById(event.id).getElementsByClassName("fa fa-times")[0];
+        let success_icon = document.getElementById(event.id).getElementsByClassName("fa fa-check")[0];
+
+        let next_div = event.parentElement.nextElementSibling;
+
+        if (document.getElementById(correct_answer_id).checked) {
+            console.log("correct answer!")
+            error_icon.style.display = "none";
+            success_icon.style.display = "inline-block";
+
+            reveal_or_hide_answers(next_div, true);
+            
+        }
+        // else, keep removing next parts of the page up until latest point
+        else {
+            console.log("wrong answer!")
+            error_icon.style.display = "inline-block";
+            success_icon.style.display = "none";
+
+            reveal_or_hide_answers(next_div, false)
+        }
+    }
+
+    function reveal_or_hide_answers (next_div, reveal) {
+        console.log("revealing or hiding");
+        console.log(next_div);
+        while (next_div != null && next_div.getElementsByClassName("fa fa-check")[0].style.display == "inline-block") {
+            if (reveal == true) next_div.classList.add("revealedElement");
+            else next_div.classList.remove("revealedElement");
+            next_div = next_div.nextElementSibling;
+        }
+        if (next_div != null) {
+            if (reveal == true) next_div.classList.add("revealedElement");
+            else next_div.classList.remove("revealedElement");
+        }
+    }
+</script>
+</body>
+</html>
