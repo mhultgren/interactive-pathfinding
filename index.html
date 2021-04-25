@@ -9,7 +9,7 @@
 <h1>Converting real problems to problem spaces</h1>
 <div>
     <div>
-        <h2>Introduction</h3>
+        <h2>Introduction</h2>
         <p>
             Pathfinding algorithms are algorithms that efficiently find paths between entities in a graph, and were created to solve problems in a wide array of fields. We use pathfinding in our navigation, finding the quickest route to the convenience store three miles away. We use pathfinding in our videogames, creating realistic AI with complex decision making capabilities. We use pathfinding to solve puzzles, commonly mazes, but others as well. We might even use pathfinding to solve pesky Leetcode questions in a job interview. 
         </p>
@@ -23,28 +23,150 @@
     </div>
 
     <div class = "hiddenElement">
-        <h2>Real world example of a problem</h3>
+        <h3>Graphs</h3>
         <p>
-            Super descriptive example of problem
+            A graph is a data structure where data is stored in a collection of interconnected vertices (nodes) and paths (edges). The ways in which nodes are connected by edges determines the type of graph as well. If the edges have a “cost” or “weight” associated with them, the graph is considered weighted rather than unweighted. In addition, if edges connect nodes in both directions, the graph is referred to as undirected as opposed to directed. Lastly, in a directed graph, if edges connect nodes in a loop of any size, the graph is classified as cyclic instead of acyclic. 
         </p>
         <button onclick="reveal_or_hide_next_div(this.parentElement.nextElementSibling, true)">Continue</button>
     </div>
+
     <div class = "hiddenElement">
-        <h3>Quiz</h3>
+        <h3>Breadth-First Search(BFS)</h3>
+        <p>
+            One of the most common pathfinding algorithms, Breadth First Search uses a queue to examine each neighbor of the source node before arriving at its destination. Starting at the source node, BFS checks each neighbor before moving on to each neighbor of those neighbors in turn, expanding outwards equally in all directions from the source as it searches.
+        </p>
+        <p>
+            BFS guarantees the shortest path from source to destination in an unweighted graph, albeit in a fairly inefficient manner.
+        </p>  
+        <p>  
+            Interact with the dropdown to see an example of the BFS in action. Watch as it examines each neighbor in turn before expanding outwards!
+        </p>
+        <div>
+            <form onsubmit="show_video(this); return false;">
+                <label for="intro-bfs">Choose an algorithm:</label>
+                <select id="intro-bfs" name="intro-bfs">
+                    <option value = "">No thanks</option>
+                    <option value = "intro_bfs.mp4">Breadth-First</option>
+                </select>
+                <input type="submit" value="Submit">
+            </form>
+            <video autoplay loop muted width="500" height="300" style="display: none;"></video>
+        </div>
+        <button onclick="reveal_or_hide_next_div(this.parentElement.nextElementSibling, true)">Continue</button>
+    </div>
 
+    <div class = "hiddenElement">
+        <h3>Depth-First Search(DFS)</h3>
+        <p>
+            While BFS expands in all directions as it searches, Depth First Search algorithms use a stack to search as far as possible down one path, backtracking when a node with no more neighbors is reached. Starting at the source node, DFS examines each neighbor as far as it can go, before moving on to the next neighbor of the source node.        
+        </p>
+        <p>
+            Unlike BFS, DFS does not guarantee the shortest path. However, it can be the preferred algorithm for larger graphs where the destination node is likely to be far from the source node, as fewer nodes can be visited in the process.
+        </p>  
+        <p>  
+            Below is the same example, this time of the DFS. Note how it finishes each path before checking the path of neighboring nodes.
+        </p>
+        <div>
+            <form onsubmit="show_video(this); return false;">
+                <label for="intro-dfs">Choose an algorithm:</label>
+                <select id="intro-dfs" name="intro-bfs">
+                    <option value = "">No thanks</option>
+                    <option value = "intro_dfs.mp4">Depth-First</option>
+                </select>
+                <input type="submit" value="Submit">
+            </form>
+            <video autoplay loop muted width="500" height="300" style="display: none;"></video>
+        </div>
+        <button onclick="reveal_or_hide_next_div(this.parentElement.nextElementSibling, true)">Continue</button>
+    </div>
+
+    <div class = "hiddenElement">
+        <h3>Dijkstra's Algorithm</h3>
+        <p>
+            Created in 1956 by Edsger Dijkstra, Dijkstra’s algorithm uses a priority queue to find the shortest path. Dijkstra’s priority queue consists of paths ranked by their total cost, or the sum of all the edge weights that make up the path, such that the path with the minimum total cost exists at the top of the queue. By prioritizing visiting nodes that minimize overall cost, Dijkstra’s algorithm ensures that the path of lowest cost is always being dealt with, thus guaranteeing a shortest path. Dijkstra’s algorithm excels when used with weighted graphs, where edge weights distinguish shortest paths from shortest paths in the euclidean sense.
+        <p>
+        <p>  
+            One thing to keep in mind is that, due to the priority queue requiring reordering when adding a new node to the queue, Dijkstra’s algorithm has added time complexity in that regard.
+        </p>
+        <p>Check out what it looks like here!</p>
+        <div>
+            <form onsubmit="show_video(this); return false;">
+                <label for="intro-dijkstras">Choose an algorithm:</label>
+                <select id="intro-dijkstras" name="intro-bfs">
+                    <option value = "">No thanks</option>
+                    <option value = "intro_dijkstras.mp4">Dijkstra’s algorithm</option>
+                </select>
+                <input type="submit" value="Submit">
+            </form>
+            <video autoplay loop muted width="500" height="300" style="display: none;"></video>
+        </div>
+        <button onclick="reveal_or_hide_next_div(this.parentElement.nextElementSibling, true)">Continue</button>
+    </div>
+
+    <div class = "hiddenElement">
+        <h3>A* Algorithm</h3>
+        <p>
+            The A* algorithm builds on top of Dijkstra’s algorithm, taking both total path cost and the distance of a node from the destination node into account when adding new paths to the priority queue.
+        <p>
+        <p>  
+            By doing so, A* ensures that the shortest path that approaches the destination node is taken into account, usually requiring the examination of fewer nodes. However, because the distance from the destination heuristic may not be applicable to all types of problems, A* may not be an appropriate algorithm in all cases.
+        </p>
+        <p>Check out what it looks like here!</p>
+        <div>
+            <form onsubmit="show_video(this); return false;">
+                <label for="intro-A*">Choose an algorithm:</label>
+                <select id="intro-A*" name="intro-bfs">
+                    <option value = "">No thanks</option>
+                    <option value = "intro_A*.mp4">A* algorithm</option>
+                </select>
+                <input type="submit" value="Submit">
+            </form>
+            <video autoplay loop muted width="500" height="300" style="display: none;"></video>
+        </div>
+        <button onclick="reveal_or_hide_next_div(this.parentElement.nextElementSibling, true)">Continue</button>
+    </div>
+
+    <div class = "hiddenElement">
+        <h2>Real world examples</h2>
+        <p>
+            Now that the four algorithms have been introduced, it is time we move on to consider some real world examples in which these algorithms can be used.
+        </p>
+        <p>
+            Note: problems and algorithms were modeled using Clement Mihailescu’s Pathfinding Visualizer tool, available <a href=’https://clementmihailescu.github.io/Pathfinding-Visualizer/#’>here</a>.
+        </p>
+        <button onclick="reveal_or_hide_next_div(this.parentElement.nextElementSibling, true)">Continue</button>
+    </div>
+
+    <div class = "hiddenElement">
+        <h3>Sliding block puzzles</h3>
+        <p>
+            One example of a problem that can be solved via pathfinding algorithms is a sliding-puzzle game! In this game, players receive an NxN board randomly populated with tiles numbered 1 - (N^2) - , and are tasked with sliding pieces along certain routes to establish a certain end-configuration. See for yourself what it’s like on a 3x3 board!
+        </p>
+
+        <iframe name='proprofs' id='proprofs' height='625' width='770px' style='overflow-x: hidden;' frameborder=0 marginwidth=0 marginheight=0 src='https://www.proprofsgames.com/puzzle/sliding/mona-lisaq/?ew=500'></iframe>
+
+        <p>
+            While this may not seem solvable using pathfinding at first glance, let us consider how we might leverage existing algorithms to find a working solution.
+        </p>
+        <button onclick="reveal_or_hide_next_div(this.parentElement.nextElementSibling, true)">Continue</button>
+    </div>
+
+    <div class = "hiddenElement">
+        <h4>Quiz</h4>
         <form id = "q1" onsubmit="check_answer(this); return false;">
-        <p>Sliding block puzzles can be thought of as a graph problem</p>
-        <input type="radio" id="q1ans1" name = "question1">
-        <label for="q1ans1">True</label><br>
+            <p>Sliding block puzzles can be thought of as a graph problem</p>
+            <input type="radio" id="q1ans1" name = "question1">
+            <label for="q1ans1">True</label><br>
 
-        <input type="radio" id="q1ans2" name = "question1">
-        <label for="q1ans2">False</label><br>
+            <input type="radio" id="q1ans2" name = "question1">
+            <label for="q1ans2">False</label><br>
 
-        <input type="submit" value="Submit">
-        <i class="fa fa-check" aria-hidden="true" style="color: green; display: none;"></i>
-        <i class="fa fa-times" aria-hidden="true" style="color: red; display: none;"></i>
+            <input type="submit" value="Submit">
+            <i class="fa fa-check" aria-hidden="true" style="color: green; display: none;"></i>
+            <i class="fa fa-times" aria-hidden="true" style="color: red; display: none;"></i>
         </form>
     </div>
+
     <div class = "hiddenElement">
         <form id = "q2" onsubmit="check_answer(this); return false;">
             <p>What would the nodes and edges be?</p>
@@ -132,23 +254,19 @@
     "q3": "q3ans1"
     };
     function show_video (event) {
-        let form_id = event.id;
-        console.log("form_id is " + form_id);
-        let algorithm = event.getElementsByTagName("select")[0].value;
+        let video_name = event.getElementsByTagName("select")[0].value;
         
-        console.log("algorithm is " + algorithm);
+        console.log("video name is " + video_name);
 
         let video_elem = event.nextElementSibling;
         // if there's no value, make sure next sibling's display is none
-        if (algorithm == "") video_elem.style.display = "none";
+        if (video_name == "") video_elem.style.display = "none";
     
         // else, make display visible and show proper video
         else {
-            let video_name = form_id + "_" + algorithm + ".mp4";
-
-            video_elem.style.display = "block";
             video_elem.setAttribute("src", video_name);
             video_elem.load();
+            video_elem.style.display = "block";
         }
 
     }
