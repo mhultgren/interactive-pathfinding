@@ -31,7 +31,7 @@
     </div>
 
     <div class = "hiddenElement">
-        <h3>Breadth-First Search(BFS)</h3>
+        <h3>Breadth-First Search (BFS)</h3>
         <p>
             One of the most common pathfinding algorithms, Breadth First Search uses a queue to examine each neighbor of the source node before arriving at its destination. Starting at the source node, BFS checks each neighbor before moving on to each neighbor of those neighbors in turn, expanding outwards equally in all directions from the source as it searches.
         </p>
@@ -56,7 +56,7 @@
     </div>
 
     <div class = "hiddenElement">
-        <h3>Depth-First Search(DFS)</h3>
+        <h3>Depth-First Search (DFS)</h3>
         <p>
             While BFS expands in all directions as it searches, Depth First Search algorithms use a stack to search as far as possible down one path, backtracking when a node with no more neighbors is reached. Starting at the source node, DFS examines each neighbor as far as it can go, before moving on to the next neighbor of the source node.        
         </p>
@@ -189,18 +189,18 @@
     </div>
     <div class = "hiddenElement">
         <form id = "q3" onsubmit="check_answer(this); return false;">
-            <p>test q?</p>
+            <p>How many neighbors would a node have?</p>
             <input type="radio" id="q3ans1" name = "question3">
-            <label for="q3ans1">answer 1</label><br>
+            <label for="q3ans1">It depends on the size of the board</label><br>
             
             <input type="radio" id="q3ans2" name = "question3">
-            <label for="q3ans2">answer 2</label><br>
+            <label for="q3ans2">4</label><br>
             
             <input type="radio" id="q3ans3" name = "question3">
-            <label for="q3ans3">answer 3</label><br>
+            <label for="q3ans3">Between 2 and 4</label><br>
             
             <input type="radio" id="q3ans4" name = "question3">
-            <label for="q3ans4">answer 4</label><br>
+            <label for="q3ans4">2</label><br>
             
             <input type="submit" value="Submit">
             <i class="fa fa-check" aria-hidden="true" style="color: green; display: none;"></i>
@@ -213,37 +213,234 @@
             In these visualizations, each cell represents an entire board. The asterisk symbolizes the starting board while the target represents the finished, solved board. So, as the algorithm visits each neighbor, think of it as reaching a new board after moving a piece.
         </p>
         <div>
-            <form id = "example1" onsubmit="show_video(this); return false;">
-                <label for="example1input">Choose an algorithm:</label>
-                <select id="example1input" name="example1input">
-                <option value = ""></option>
-                <option value = "bf">Breadth-First</option>
-                <option value = "df">Depth-First</option>
-                <option value = "dijkstra">Dijskra's</option>
+            <form onsubmit="show_video(this); return false;">
+                <label for="example1visuals">Choose an algorithm:</label>
+                <select id="example1visuals" name="example1visuals">
+                    <option value = "">No thanks</option>
+                    <option value = "example1_bfs.mp4">Breadth-First</option>
+                    <option value = "example1_dfs.mp4">Depth-First</option>
+                    <option value = "TODO">Dijskra's</option>
                 </select>
                 <input type="submit" value="Submit">
             </form>
-            <video autoplay loop muted width="500" height="300" style="display: none;" src="example1_df.mp4"></video>
+            <video autoplay loop muted width="500" height="300" style="display: none;"></video>
         </div>
-        <h2>Real world example of a 2nd problem</h3>
+        <button onclick="reveal_or_hide_next_div(this.parentElement.nextElementSibling, true)">Continue</button>
+    </div>
+
+    <div class = "hiddenElement">
+        <p>
+            In these visualizations, we can see how different approaches work to find the best route. Because the graph space for game boards is unweighted, approaches using breadth-first search and dijkstra’s become almost indistinguishable. On the other hand, a depth-first search based approach clearly does not find the minimal moves necessary to reach the destination node. Lastly, A* is not even applicable here since a heuristic based on distance from the end board would not make much sense.
+        </p>
+        
+        <button onclick="reveal_or_hide_next_div(this.parentElement.nextElementSibling, true)">Continue</button>
+    </div>
+
+    <div class = "hiddenElement">
+        <h3>Routing and navigation</h3>
             <p>
-                Super descriptive example of problem
+                If you have ever been lost or in need of directions, you will recognize the value of mapping systems like Google Maps in providing the fastest routes from point A to point B. While it may not seem like it, this technology can be boiled down to a pathfinding problem, and solved using the algorithms you know! In this example, we ask of you to frame this real world problem in such a manner.
             </p>
-    
-            <h3>Quiz</h3>
-    
-            <form id = "q4" onsubmit="check_answer(this); return false;">
-            <p>random question</p>
-            <input type="radio" id="q4ans1" name = "question1">
+
+            <button onclick="reveal_or_hide_next_div(this.parentElement.nextElementSibling, true)">Continue</button>
+    </div>
+    <div class = "hiddenElement">
+        <h4>Quiz</h4>
+        <form id = "q4" onsubmit="check_answer(this); return false;">
+            <p>Routing problems should always be implemented with unweighted graphs</p>
+            <input type="radio" id="q4ans1" name = "question4">
             <label for="q4ans1">True</label><br>
-    
-            <input type="radio" id="q4ans2" name = "question1">
+
+            <input type="radio" id="q4ans2" name = "question4">
             <label for="q4ans2">False</label><br>
-    
+
             <input type="submit" value="Submit">
             <i class="fa fa-check" aria-hidden="true" style="color: green; display: none;"></i>
             <i class="fa fa-times" aria-hidden="true" style="color: red; display: none;"></i>
+        </form>
+    </div>
+
+    <div class = "hiddenElement">
+        <form id = "q5" onsubmit="check_answer(this); return false;">
+            <p>What would the nodes and edges be for a typical routing problem?</p>
+            <input type="radio" id="q5ans1" name = "question5">
+            <label for="q5ans1">Nodes are intersections, edges are connections between intersections</label><br>
+
+            <input type="radio" id="q5ans2" name = "question5">
+            <label for="q5ans2">Nodes are different areas of interest, edges are roads connecting each area</label><br>
+
+            <input type="radio" id="q5ans3" name = "question5">
+            <label for="q5ans3">Nodes are all walkable/bikeable paths, edges are connections between paths</label><br>
+
+            <input type="radio" id="q5ans4" name = "question5">
+            <label for="q5ans4">None of the above</label><br>
+
+            <input type="submit" value="Submit">
+            <i class="fa fa-check" aria-hidden="true" style="color: green; display: none;"></i>
+            <i class="fa fa-times" aria-hidden="true" style="color: red; display: none;"></i>
+        </form>
+    </div>
+
+    <div class = "hiddenElement">
+        <form id = "q6" onsubmit="check_answer(this); return false;">
+            <p>What would the nodes and edges be for a typical routing problem?</p>
+            <input type="radio" id="q6ans1" name = "question6">
+            <label for="q6ans1">Distance from source to node</label><br>
+
+            <input type="radio" id="q6ans2" name = "question6">
+            <label for="q6ans2">Distance from node to destination</label><br>
+
+            <input type="radio" id="q6ans3" name = "question6">
+            <label for="q6ans3">Both the first and second answers</label><br>
+
+            <input type="radio" id="q6ans4" name = "question6">
+            <label for="q6ans4">No heuristic necessary</label><br>
+
+            <input type="submit" value="Submit">
+            <i class="fa fa-check" aria-hidden="true" style="color: green; display: none;"></i>
+            <i class="fa fa-times" aria-hidden="true" style="color: red; display: none;"></i>
+        </form>
+    </div>
+
+    <div class = "hiddenElement">
+        <h3>How the algorithm would affect problem solving</h3>
+        <p>
+            In these visualizations, each cell represents an entire board. The asterisk symbolizes the starting board while the target represents the finished, solved board. So, as the algorithm visits each neighbor, think of it as reaching a new board after moving a piece.
+        </p>
+        <div>
+            <form onsubmit="show_video(this); return false;">
+                <label for="example2visuals">Choose an algorithm:</label>
+                <select id="example2visuals" name="example2visuals">
+                    <option value = "">No thanks</option>
+                    <option value = "example2_bfs.mp4">Breadth-First</option>
+                    <option value = "example2_dfs.mp4">Depth-First</option>
+                    <option value = "example2_dijkstras.mp4">Dijskra's</option>
+                    <option value = "example2_A*.mp4">A*</option>
+                </select>
+                <input type="submit" value="Submit">
             </form>
+            <video autoplay loop muted width="500" height="300" style="display: none;"></video>
+        </div>
+        <button onclick="reveal_or_hide_next_div(this.parentElement.nextElementSibling, true)">Continue</button>
+    </div>
+
+    <div class = "hiddenElement">
+        <p>
+            In these visualizations, we can see how different approaches work to find the best route. As Dijkstra’s & A* both use weighted graphs, traffic is represented using higher cost ‘weight’ nodes. As you can see, A* is the most useful application for this specific problem, as it takes into account traffic and can efficiently find the shortest path using its heuristic.
+        </p>
+        
+        <button onclick="reveal_or_hide_next_div(this.parentElement.nextElementSibling, true)">Continue</button>
+    </div>
+
+    <div class = "hiddenElement">
+        <h3>Progression of a system over time</h3>
+            <p>
+                Have you ever wondered what would happen if you let moldy food continue to take its course? If you knew the daily rate of progression, how long would it take for it to be completely moldy? This phenomenon embodies the progression of a system over time, and can be framed as a problem amenable by graph algorithms.
+            </p>
+
+            <p>
+                In the Leetcode question <a href=”https://leetcode.com/problems/rotting-oranges/”>Rotting Oranges</a>, the user must develop an algorithm to model the spread of rottenness from one orange to another. Given a graph of m columns by n rows filled with the numbers 0-2 (where 0 is an empty space, 1 is a fresh orange, and 2 is a rotten orange), the user must calculate how many minutes it will take for every orange to become rotten. Every minute, each rotten orange infects every orange above it, below it, or to either side. The program returns -1 if it is impossible for all oranges to become rotten (not within the radius of any rotten oranges), otherwise it returns the number of minutes elapsed before every orange is rotten. Think about how you would transform this into a problem space!
+            </p>
+
+            <button onclick="reveal_or_hide_next_div(this.parentElement.nextElementSibling, true)">Continue</button>
+    </div>
+    <div class = "hiddenElement">
+        <h4>Quiz</h4>
+        <form id = "q7" onsubmit="check_answer(this); return false;">
+            <p>The best heuristic for this problem would be</p>
+            <input type="radio" id="q7ans1" name = "question7">
+            <label for="q7ans1">Distance from rotten orange to fresh orange</label><br>
+
+            <input type="radio" id="q7ans2" name = "question7">
+            <label for="q7ans2">Number of fresh oranges neighboring node</label><br>
+
+            <input type="radio" id="q7ans3" name = "question7">
+            <label for="q7ans3">Distance from fresh orange to rotten orange</label><br>
+
+            <input type="radio" id="q7ans4" name = "question7">
+            <label for="q7ans4">No heuristic at all</label><br>
+
+            <input type="submit" value="Submit">
+            <i class="fa fa-check" aria-hidden="true" style="color: green; display: none;"></i>
+            <i class="fa fa-times" aria-hidden="true" style="color: red; display: none;"></i>
+        </form>
+    </div>
+
+    <div class = "hiddenElement">
+        <form id = "q8" onsubmit="check_answer(this); return false;">
+            <p>How many neighbors would a node have?</p>
+            <input type="radio" id="q8ans1" name = "question8">
+            <label for="q8ans1">Depends on the rate of progression</label><br>
+
+            <input type="radio" id="q8ans2" name = "question8">
+            <label for="q8ans2">Depends on the size of the graph</label><br>
+
+            <input type="radio" id="q8ans3" name = "question8">
+            <label for="q8ans3">Number of nodes / number of edges</label><br>
+
+            <input type="radio" id="q8ans4" name = "question8">
+            <label for="q8ans4">None of the above</label><br>
+
+            <input type="submit" value="Submit">
+            <i class="fa fa-check" aria-hidden="true" style="color: green; display: none;"></i>
+            <i class="fa fa-times" aria-hidden="true" style="color: red; display: none;"></i>
+        </form>
+    </div>
+
+    <div class = "hiddenElement">
+        <form id = "q9" onsubmit="check_answer(this); return false;">
+            <p>Which algorithm is most suitable for this problem?</p>
+            <input type="radio" id="q9ans1" name = "question9">
+            <label for="q9ans1">Dijkstra’s</label><br>
+
+            <input type="radio" id="q9ans2" name = "question9">
+            <label for="q9ans2">Breadth-first search</label><br>
+
+            <input type="radio" id="q9ans3" name = "question9">
+            <label for="q9ans3">Depth-first search</label><br>
+
+            <input type="radio" id="q9ans4" name = "question9">
+            <label for="q9ans4">Any of the above</label><br>
+
+            <input type="submit" value="Submit">
+            <i class="fa fa-check" aria-hidden="true" style="color: green; display: none;"></i>
+            <i class="fa fa-times" aria-hidden="true" style="color: red; display: none;"></i>
+        </form>
+    </div>
+
+    <div class = "hiddenElement">
+        <h3>How the algorithm would affect problem solving</h3>
+        <p>
+            In these visualizations, each cell represents an entire board. The asterisk symbolizes the starting board while the target represents the finished, solved board. So, as the algorithm visits each neighbor, think of it as reaching a new board after moving a piece.
+        </p>
+        <div>
+            <form onsubmit="show_video(this); return false;">
+                <label for="example3visuals">Choose an algorithm:</label>
+                <select id="example3visuals" name="example3visuals">
+                    <option value = "">No thanks</option>
+                    <option value = "example3_bfs.mp4">Breadth-First</option>
+                    <option value = "example3_dijkstras.mp4">Dijskra's</option>
+                </select>
+                <input type="submit" value="Submit">
+            </form>
+            <video autoplay loop muted width="500" height="300" style="display: none;"></video>
+        </div>
+        <button onclick="reveal_or_hide_next_div(this.parentElement.nextElementSibling, true)">Continue</button>
+    </div>
+
+    <div class = "hiddenElement">
+        <p>
+            In these visualizations, we can see how different approaches work to solve the problem. Unlike the other problems, only breadth-first search and Dijkstra’s algorithm work here, since they’re the only ones that traverse a graph in an even fashion (since the graph is unweighted for this problem). Despite sharing similar traversal patterns for this problem, it makes much more sense to approach this problem with breadth-first search given its simpler implementation and lack of reliance on a priority queue, which adds additional time complexity.
+        </p>
+        
+        <button onclick="reveal_or_hide_next_div(this.parentElement.nextElementSibling, true)">Continue</button>
+    </div>
+
+    <div class = "hiddenElement">
+        <h2>Conclusion</h2>
+        <p>
+            We know this has been a lot of information, but we hope that you have been able to come away with more knowledge concerning the potential implementations of pathfinding algorithms, as well as the benefits and drawbacks of each. Being a strong programmer does not only mean a knowledge of math or constant reading of documentation, but knowledge of useful algorithms and when to use them. If you ever find yourself stuck on a nasty coding problem, floundering in a coding interview or rushing to push code before midnight, keep in mind the algorithms introduced here. They might just come in handy!
+        </p>
     </div>
 </div>
 <script>
@@ -251,7 +448,13 @@
     {
     "q1": "q1ans1",
     "q2": "q2ans2",
-    "q3": "q3ans1"
+    "q3": "q3ans3",
+    "q4": "q4ans2",
+    "q5": "q5ans1",
+    "q6": "q6ans2",
+    "q7": "q7ans4",
+    "q8": "q8ans4",
+    "q9": "q9ans2"
     };
     function show_video (event) {
         let video_name = event.getElementsByTagName("select")[0].value;
