@@ -7,6 +7,7 @@
 <body>
 
 <h1>Converting real problems to problem spaces</h1>
+<!-- <iframe name='proprofs' id='proprofs' height='625' width='770px' style='overflow-x: hidden;' frameborder=0 marginwidth=0 marginheight=0 src='https://www.proprofsgames.com/puzzle/sliding/mona-lisaq/?ew=500'></iframe><div style='font-size:10px; font-family:Arial, Helvetica, sans-serif; color:black;'><a href='https://www.proprofsgames.com/puzzle/sliding/mona-lisaq/' target='_blank' rel='nofollow' title='Mona Lisa Sliding Puzzle'>Mona Lisa Sliding Puzzle</a> » <a href='https://www.proprofsgames.com/puzzle/sliding/' title='sliding puzzles' target='_blank' rel='nofollow'>sliding puzzles</a></div> -->
 <div>
     <div>
         <h2>Introduction</h3>
@@ -18,7 +19,9 @@
         <p>
             Super descriptive example of problem
         </p>
-
+        <button onclick="reveal_or_hide_next_div(this.parentElement.nextElementSibling, true)">Continue</button>
+    </div>
+    <div class = "hiddenElement">
         <h3>Quiz</h3>
 
         <form id = "q1" onsubmit="check_answer(this); return false;">
@@ -156,7 +159,7 @@
             error_icon.style.display = "none";
             success_icon.style.display = "inline-block";
 
-            reveal_or_hide_answers(next_div, true);
+            reveal_or_hide_next_div(next_div, true);
             
         }
         // else, keep removing next parts of the page up until latest point
@@ -165,11 +168,11 @@
             error_icon.style.display = "inline-block";
             success_icon.style.display = "none";
 
-            reveal_or_hide_answers(next_div, false)
+            reveal_or_hide_next_div(next_div, false)
         }
     }
 
-    function reveal_or_hide_answers (next_div, reveal) {
+    function reveal_or_hide_next_div (next_div, reveal) {
         console.log("revealing or hiding");
         console.log(next_div);
         while (next_div != null && next_div.getElementsByClassName("fa fa-check")[0].style.display == "inline-block") {
