@@ -7,14 +7,22 @@
 <body>
 
 <h1>Converting real problems to problem spaces</h1>
-<!-- <iframe name='proprofs' id='proprofs' height='625' width='770px' style='overflow-x: hidden;' frameborder=0 marginwidth=0 marginheight=0 src='https://www.proprofsgames.com/puzzle/sliding/mona-lisaq/?ew=500'></iframe><div style='font-size:10px; font-family:Arial, Helvetica, sans-serif; color:black;'><a href='https://www.proprofsgames.com/puzzle/sliding/mona-lisaq/' target='_blank' rel='nofollow' title='Mona Lisa Sliding Puzzle'>Mona Lisa Sliding Puzzle</a> » <a href='https://www.proprofsgames.com/puzzle/sliding/' title='sliding puzzles' target='_blank' rel='nofollow'>sliding puzzles</a></div> -->
 <div>
     <div>
         <h2>Introduction</h3>
         <p>
-            Insightful introduction and summary of algorithms
+            Pathfinding algorithms are algorithms that efficiently find paths between entities in a graph, and were created to solve problems in a wide array of fields. We use pathfinding in our navigation, finding the quickest route to the convenience store three miles away. We use pathfinding in our videogames, creating realistic AI with complex decision making capabilities. We use pathfinding to solve puzzles, commonly mazes, but others as well. We might even use pathfinding to solve pesky Leetcode questions in a job interview. 
         </p>
+        <p>
+            While typical computer science coursework devotes a substantial amount of time toward teaching these algorithms, often little time is spent applying them to real world problems. In this article we will investigate three problems which can be solved with pathfinding, giving you the opportunity to learn more through interaction.
+        </p>
+        <p>
+            Before we investigate each application, however, let us revisit the concept of graphs and the common pathfinding algorithms we will be referring to in this article.
+        </p>
+        <button onclick="reveal_or_hide_next_div(this.parentElement.nextElementSibling, true)">Continue</button>
+    </div>
 
+    <div class = "hiddenElement">
         <h2>Real world example of a problem</h3>
         <p>
             Super descriptive example of problem
@@ -175,7 +183,9 @@
     function reveal_or_hide_next_div (next_div, reveal) {
         console.log("revealing or hiding");
         console.log(next_div);
-        while (next_div != null && next_div.getElementsByClassName("fa fa-check")[0].style.display == "inline-block") {
+        while (next_div != null && next_div.getElementsByClassName("fa fa-check").length > 0) {
+            if (next_div.getElementsByClassName("fa fa-check")[0].style.display != "inline-block") break;
+           
             if (reveal == true) next_div.classList.add("revealedElement");
             else next_div.classList.remove("revealedElement");
             next_div = next_div.nextElementSibling;
