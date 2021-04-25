@@ -18,8 +18,26 @@
 
 body {
     padding: 0 20vw;
+    margin: 40px 0px;
 }
 
-h1 {
+.newSection {
+    margin: 60px 0px 20px 0px;
+}
+
+.header {
     text-align: center;
+}
+
+.btn {
+    margin: 7px 0px;
+}
+
+video {
+    display: block;
+    margin: 0 auto;
+}
+
+.selectButton {
+    margin-left: 10px;
 }
