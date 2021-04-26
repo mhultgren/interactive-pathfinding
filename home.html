@@ -144,7 +144,7 @@
                     <div style="display: flex;">
                         <select class="form-select form-select-lg" id="intro-A_" name="intro-bfs">
                             <option value = "">No thanks</option>
-                            <option value = "intro_A_.mp4">A* algorithm</option>
+                            <option value = "intro_A*.mp4">A* algorithm</option>
                         </select>
                         <button class="selectButton btn btn-outline-dark" type="submit">Submit</button>
                     </div>
@@ -163,7 +163,7 @@
                 Now that the four algorithms have been introduced, it is time we move on to consider some real world examples in which these algorithms can be used.
             </p>
             <p>
-                Note: problems and algorithms were modeled using Clement Mihailescu’s Pathfinding Visualizer tool, available <a href=’https://clementmihailescu.github.io/Pathfinding-Visualizer/#’>here</a>.
+                Note: problems and algorithms were modeled using Clement Mihailescu’s Pathfinding Visualizer tool, available <a href="https://clementmihailescu.github.io/Pathfinding-Visualizer/#">here</a>.
             </p>
             <button class="btn btn-outline-dark btn-sm continueButton" onclick="reveal_or_hide_next_div(this.parentElement.nextElementSibling, true)">Continue</button>
         </div>
@@ -174,7 +174,7 @@
             </div>
 
             <p>
-                One example of a problem that can be solved via pathfinding algorithms is a sliding-puzzle game! In this game, players receive an NxN board randomly populated with tiles numbered 1 - (N^2) - , and are tasked with sliding pieces along certain routes to establish a certain end-configuration. See for yourself what it’s like on a 3x3 board!
+                One example of a problem that can be solved via pathfinding algorithms is a sliding-puzzle game! In this game, players receive an NxN board randomly populated with tiles numbered 1 - (N^2), and are tasked with sliding pieces along certain routes to establish a certain end-configuration. See for yourself what it’s like on a 3x3 board!
             </p>
 
             <iframe name='proprofs' id='proprofs' height='625' width='770px' style='overflow-x: hidden;' frameborder=0 marginwidth=0 marginheight=0 src='https://www.proprofsgames.com/puzzle/sliding/mona-lisaq/?ew=500' onload="let_iframe_load_before_hiding(this)"></iframe>
@@ -351,7 +351,7 @@
                             <option value = "example2_bfs.mp4">Breadth-First</option>
                             <option value = "example2_dfs.mp4">Depth-First</option>
                             <option value = "example2_dijkstras.mp4">Dijkstra's</option>
-                            <option value = "example2_A_.mp4">A*</option>
+                            <option value = "example2_A*.mp4">A*</option>
                         </select>
                         <button class="selectButton btn btn-outline-dark" type="submit">Submit</button>
                     </div>
@@ -363,7 +363,7 @@
 
         <div class = "hiddenElement">
             <p>
-                In these visualizations, we can see how different approaches work to find the best route. As Dijkstra’s &amp; A* both use weighted graphs, traffic is represented using higher cost ‘weight’ nodes. As you can see, A* is the most useful application for this specific problem, as it takes into account traffic and can efficiently find the shortest path using its heuristic.
+                In these visualizations, we can see how different approaches work to find the best route. Because traffic and other factors can render some streets slower than others for transportation, graphs are always weighted for these problems. Because Dijkstra’s and A* take total path cost into account, they excel at finding the quickest route from point A to point B. Nevertheless, because A* can take into account distance from the destination node as well, it finds the shortest path more efficiently than the other algorithms.
             </p>
 
             <button class="btn btn-outline-dark btn-sm continueButton" onclick="reveal_or_hide_next_div(this.parentElement.nextElementSibling, true)">Continue</button>
@@ -379,7 +379,7 @@
                 </p>
 
                 <p>
-                    In the Leetcode question <a href=”https://leetcode.com/problems/rotting-oranges/”>Rotting Oranges</a>, the user must develop an algorithm to model the spread of rottenness from one orange to another. Given a graph of m columns by n rows filled with the numbers 0-2 (where 0 is an empty space, 1 is a fresh orange, and 2 is a rotten orange), the user must calculate how many minutes it will take for every orange to become rotten. Every minute, each rotten orange infects every orange above it, below it, or to either side. The program returns -1 if it is impossible for all oranges to become rotten (not within the radius of any rotten oranges), otherwise it returns the number of minutes elapsed before every orange is rotten. Think about how you would transform this into a problem space!
+                    In the Leetcode question <a href="https://leetcode.com/problems/rotting-oranges/">Rotting Oranges</a>, the user must develop an algorithm to model the spread of rottenness from one orange to another. Given a graph of m columns by n rows filled with the numbers 0-2 (where 0 is an empty space, 1 is a fresh orange, and 2 is a rotten orange), the user must calculate how many minutes it will take for every orange to become rotten. Every minute, each rotten orange infects every orange above it, below it, or to either side. The program returns -1 if it is impossible for all oranges to become rotten (not within the radius of any rotten oranges), otherwise it returns the number of minutes elapsed before every orange is rotten. Think about how you would transform this into a problem space!
                 </p>
 
                 <button class="btn btn-outline-dark btn-sm continueButton" onclick="reveal_or_hide_next_div(this.parentElement.nextElementSibling, true)">Continue</button>
@@ -450,9 +450,6 @@
 
         <div class = "hiddenElement">
             <h3>How the algorithm would affect problem solving</h3>
-            <p>
-                In these visualizations, each cell represents an entire board. The asterisk symbolizes the starting board while the target represents the finished, solved board. So, as the algorithm visits each neighbor, think of it as reaching a new board after moving a piece.
-            </p>
             <div>
                 <form onsubmit="show_video(this); return false;">
                     <label for="example3visuals">Choose an algorithm:</label>
