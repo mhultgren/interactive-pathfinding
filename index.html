@@ -168,7 +168,7 @@
             <button class="btn btn-outline-dark btn-sm continueButton" onclick="reveal_or_hide_next_div(this.parentElement.nextElementSibling, true)">Continue</button>
         </div>
 
-        <div class = "newSection hiddenElement">
+        <div class = "newSection loadingElement">
             <div class="header">
                 <h3>Sliding block puzzles</h3>
             </div>
@@ -177,8 +177,7 @@
                 One example of a problem that can be solved via pathfinding algorithms is a sliding-puzzle game! In this game, players receive an NxN board randomly populated with tiles numbered 1 - (N^2) - , and are tasked with sliding pieces along certain routes to establish a certain end-configuration. See for yourself what it’s like on a 3x3 board!
             </p>
 
-            <iframe name='proprofs' id='proprofs' height='625' width='770px' style='overflow-x: hidden;' frameborder=0 marginwidth=0 marginheight=0 src='https://www.proprofsgames.com/puzzle/sliding/mona-lisaq/?ew=500'></iframe>
-
+            <iframe name='proprofs' id='proprofs' height='625' width='770px' style='overflow-x: hidden;' frameborder=0 marginwidth=0 marginheight=0 src='https://www.proprofsgames.com/puzzle/sliding/mona-lisaq/?ew=500' onload="let_iframe_load_before_hiding(this)"></iframe>
             <p>
                 While this may not seem solvable using pathfinding at first glance, let us consider how we might leverage existing algorithms to find a working solution.
             </p>
@@ -254,7 +253,7 @@
                             <option value = "">No thanks</option>
                             <option value = "example1_bfs.mp4">Breadth-First</option>
                             <option value = "example1_dfs.mp4">Depth-First</option>
-                            <option value = "TODO">Dijskra's</option>
+                            <option value = "example1_dijkstras.mp4">Dijskra's</option>
                         </select>
                         <button class="selectButton btn btn-outline-dark" type="submit">Submit</button>
                     </div>
@@ -505,6 +504,12 @@
         "q8": "q8ans4",
         "q9": "q9ans2"
         };
+
+        function let_iframe_load_before_hiding(event) {
+            event.parentElement.classList.add("hiddenElement");
+            event.parentElement.classList.remove("loadingElement");
+        };
+
         function show_video (event) {
             let video_name = event.getElementsByTagName("select")[0].value;
 
@@ -564,6 +569,7 @@
                 if (reveal == true) next_div.classList.add("revealedElement");
                 else next_div.classList.remove("revealedElement");
             }
+            window.scrollTo(0,document.body.scrollHeight);
         }
     </script>
 </body>

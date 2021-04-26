@@ -1,3 +1,7 @@
+.loadingElement {
+    visibility: hidden;
+}
+
 .hiddenElement {
     display: none;
 }
